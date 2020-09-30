@@ -40,8 +40,8 @@ namespace obapitest_dev.Controllers
             var tokenRequest = new SamlTokenRequest
             {
                 Audience = $"https://{obapiDomain}/",
-                Username = _configuration["username"],
-                Password = _configuration["password"],
+                Username = _configuration["serviceusername"],
+                Password = _configuration["servicepassword"],
             };
             var tokenResponse = await c.RequestTokenAsync(tokenRequest);
             var encodedToken = new DeflatedSamlEncoder().Encode(tokenResponse.TokenXml);
